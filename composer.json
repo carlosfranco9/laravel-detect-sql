@@ -1,0 +1,25 @@
+{
+    "name": "carlosfranco/laravel-detect-sql",
+    "description": "find some bad sql in project when run a api request",
+    "version": "1.0.0",
+    "autoload": {
+        "psr-4": {
+            "CarlosFranco\\DetectSql\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "lky",
+            "email": "lky009@163.com"
+        }
+    ],
+    "require": {},
+    "extra": {
+        "laravel": {
+            "providers": [
+                "\\CarlosFranco\\DetectSql\\Providers\\ServiceProvider"
+            ]
+        }
+
+    }
+}
