@@ -13,6 +13,9 @@ class SqlDetect
     /** @var self */
     protected static $instance;
 
+    protected $nestedObj;
+
+
     private function __construct(){}
 
     public static function instance()
@@ -35,13 +38,22 @@ class SqlDetect
         //执行环境检测
         if ($this->isCli()) {
             //暂不支持cli模式
-            throw new EnvException("暂不支持cli模式");
+//            throw new EnvException("暂不支持cli模式");
         }
 
         $builder = $this->getCurrentBuilderByStrace();
 
-        $resolve = new DisassembleQuery($builder);
+//        $resolve = new DisassembleQuery($builder);
+//
+//        $resolve->explainSql();
 
+        $this->nestedObj->addBuilder($builder);
+    }
+
+    public function setNestedSqlObject($nestedObj)
+    {
+        $this->nestedObj = $nestedObj;
+        return $this;
     }
 
 
